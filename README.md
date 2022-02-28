@@ -1,8 +1,10 @@
 <h1 align="center">Biltong Boutique</h1>
 
-[View the live project here on Heroku.](#)
+[...](#)
 
 This is a biltong boutique store selling biltong and anything related to biltong.
+
+*** INCOMPLETE *** Unable to complete this project. Had catastrophic issues with django_country CountryField for past few weeks and still could not solve it. Deleted repository and started again, following the tutorials again and again. Trying to fix this issue caused more issues than it solved.
 
 <h2 align="center"><img src=""></h2>
 
@@ -176,17 +178,16 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 [Layout](#layout)
 ### Code
 
--   The full-screen hero image code came from [Pixabay](#)
+-   All content was written by the developer based on the tutorials.
 
 ### Content
 
--   All content was written by the developer.
 
 -   Psychological properties of colours text in the README.md was found [here](http://www.colour-affects.co.uk/psychological-properties-of-colours)
 
 ### Media
 
--   The hero image was collected from [Pixabay](#).
+-   
 
 ### Acknowledgements
 
