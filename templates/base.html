@@ -44,40 +44,32 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-        <div class="row">
-            <div class="col-12 col-lg my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link"></a>
-            </div>
-            <div class="col-12 col-lg my-auto py-1 py-lg-0">
-                <form action="" method="GET">
-                    <div class="input-group w-100">
-                        <input type="text" class="form-control border border-black rounded-0" name="q"
-                            placeholder="Search our site">
-                        <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                                <span class="icon">
-                                    <i class="fas fa-search"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <h2 class="logo-font text-black my-0"><strong>Biltong</strong> Shop</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline mr-auto" action="" method="get">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
-            </div>
-            <div class="col-12 col-lg my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg right my-0">
-                    <li class="list-line-item dropdown">
-                        <a href="" class="text-black nav-link" id="user-options" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
-                            </div>
+                <ul class="navbar-nav my-2 my-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            My Account
                         </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
                             <a href="" class="dropdown-item">Product Management</a>
+                            <div class="dropdown-divider"></div>
                             {% endif %}
                             <a href="" class="dropdown-item">My Profile</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -86,10 +78,9 @@
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Login</a>
                             {% endif %}
                         </div>
-                    </li>
-                    <li class="list-line-item">
+                    <li class="nav-item">
                         <a href=""
-                            class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link">
+                            class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                 <p class="my-0">
@@ -102,9 +93,10 @@
                             </div>
                         </a>
                     </li>
+                    </li>
                 </ul>
             </div>
-        </div>
+        </nav>
     </header>
 
     {% if messages %}
