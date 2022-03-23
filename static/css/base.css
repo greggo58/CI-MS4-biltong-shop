@@ -11,6 +11,19 @@ body {
 }
 
 /* from Bulma */
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 2;
+    cursor: pointer;
+}
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -52,6 +65,10 @@ body {
     color: #BBB !important;
 }
 
+.text-pale-grey {
+    color: #DDD !important;
+}
+
 .border-black {
     border: 1px solid black !important;
 }
@@ -60,9 +77,9 @@ body {
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .container {
+        max-width: 80%;
+    }
 }
 
 /* fixed top navbar only on medium and up */
