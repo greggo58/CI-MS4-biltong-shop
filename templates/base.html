@@ -49,9 +49,22 @@
 
 <body>
     <div id="overlay">
-        <header>
-             {% include 'includes/top-nav.html' %}
-             {% include 'includes/main-nav.html' %}
+        <header class="container-fluid fixed-top px-0 py-0">
+            <div class="row flex-nowrap">
+                <div class="col">
+                    {% include 'includes/top-nav.html' %}
+                </div>
+            </div>
+            <div class="row flex-nowrap">
+                <div class="col">
+                    {% include 'includes/main-nav.html' %}
+                </div>
+            </div>
+            <div class="row flex-nowrap">
+                <div class="col">
+                    {% include 'includes/delivery-banner.html' %}
+                </div>
+            </div>
         </header>
 
         {% if messages %}
