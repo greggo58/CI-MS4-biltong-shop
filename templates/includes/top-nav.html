@@ -1,0 +1,50 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" id="topnav">
+    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+        <h2 class="logo-font text-charcoal-grey my-0"><strong>Biltong</strong> Shop</h2>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <form class="form-inline mr-auto" action="" method="get">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav my-2 my-lg-0">
+            <li class="nav-item list-inline-item dropdown">
+                <a class="nav-link dropdown-toggle text-charcoal-grey" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                    <a href="" class="dropdown-item">Product Management</a>
+                    <div class="dropdown-divider"></div>
+                    {% endif %}
+                    <a href="" class="dropdown-item">My Profile</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Register</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Login</a>
+                    {% endif %}
+                </div>
+            </li>
+        </ul>
+    </div>
+    <span class="navbar-item list-inline-item">
+        <a href="" class="{% if grand_total %}text-info font-weight-bold{% else %}text-charcoal-grey{% endif %}">
+            <div class="text-center">
+                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                <p class="my-0">
+                    {% if grand_total %}
+                    £ {{ grand_total|floatformat:2 }}
+                    {% else %}
+                    £ 0.00
+                    {% endif %}
+                </p>
+            </div>
+        </a>
+    </span>
+</nav>

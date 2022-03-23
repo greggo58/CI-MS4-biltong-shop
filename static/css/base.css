@@ -11,6 +11,15 @@ body {
 }
 
 /* from Bulma */
+
+#topnav {
+    position: unset;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
 #overlay {
     position: fixed;
     width: 100%;
@@ -41,8 +50,8 @@ body {
 }
 
 .shop-now-button {
-    background: black;
-    color: white;
+    background: rgb(187, 204, 33);
+    color: #222;
     min-width: 260px;
 }
 
