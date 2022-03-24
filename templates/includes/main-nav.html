@@ -12,26 +12,37 @@
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
-
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-light mr-5" href="#" id="meat-link"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Meat
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="meat-link">
+                <a class="dropdown-item" href="{% url 'products' %}?category=meat_raw">Raw</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=meat_dried">Dried</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=meat_raw,meat_dried">All meat</a>
+            </div>
+        </li>
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-light mr-5" href="#" id="spices-link"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Spices
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="spices-link">
-                <a class="dropdown-item" href="#">Core / Basic</a>
-                <a class="dropdown-item" href="#">Optional Extras</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=spices_core">Core / Basic</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=spices_optional">Optional Extras</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=spices_core,spices_optional">All spices</a>
             </div>
         </li>
-
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-light mr-5" href="#" id="equipment-link"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Equipment
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="equipment-link">
-                <a class="dropdown-item" href="#">Traditional</a>
-                <a class="dropdown-item" href="#">Modern</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=equipment_traditional">Traditional</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=equipment_modern">Modern</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=equipment_traditional,equipment_modern">All equipment</a>
             </div>
         </li>
         <li class="nav-item">
