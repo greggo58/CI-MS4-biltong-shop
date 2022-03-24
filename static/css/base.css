@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('https://cdn.pixabay.com/photo/2016/03/05/19/43/africa-1238491_1280.jpg') no-repeat center center fixed;
+    background: url('https://cdn.pixabay.com/photo/2016/03/05/19/43/africa-1238491_1280.jpg') no-repeat center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
@@ -71,7 +71,7 @@ body {
 .overlay {
 	height: 100%;
 	width: 100%;
-	top: 15vh;
+	top: 100px;
 	left: 0;
 	position: fixed;
 	background: black;
