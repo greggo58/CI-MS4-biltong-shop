@@ -11,6 +11,10 @@ body {
 }
 
 /* from Bulma */
+.maincontent {
+    margin-top: 15vh;
+}
+
 .icon {
     align-items: center;
     display: inline-flex;
@@ -63,7 +67,7 @@ body {
 .overlay {
 	height: 100%;
 	width: 100%;
-	top: 0;
+	top: 15vh;
 	left: 0;
 	position: fixed;
 	background: black;
