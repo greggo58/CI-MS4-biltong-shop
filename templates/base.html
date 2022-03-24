@@ -48,37 +48,37 @@
 </head>
 
 <body>
+    <header class="container-fluid fixed-top px-0 py-0">
+        <div class="row flex-nowrap">
+            <div class="col">
+                {% include 'includes/top-nav.html' %}
+            </div>
+        </div>
+        <div class="row flex-nowrap">
+            <div class="col">
+                {% include 'includes/main-nav.html' %}
+            </div>
+        </div>
+        <div class="row flex-nowrap">
+            <div class="col">
+                {% include 'includes/delivery-banner.html' %}
+            </div>
+        </div>
+    </header>
+
+    {% if messages %}
+    <div class="message-container"></div>
+    {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
+
     <div id="overlay"></div>
-        <header class="container-fluid fixed-top px-0 py-0">
-            <div class="row flex-nowrap">
-                <div class="col">
-                    {% include 'includes/top-nav.html' %}
-                </div>
-            </div>
-            <div class="row flex-nowrap">
-                <div class="col">
-                    {% include 'includes/main-nav.html' %}
-                </div>
-            </div>
-            <div class="row flex-nowrap">
-                <div class="col">
-                    {% include 'includes/delivery-banner.html' %}
-                </div>
-            </div>
-        </header>
+    {% block content%}
+    {% endblock %}
 
-        {% if messages %}
-        <div class="message-container"></div>
-        {% endif %}
-
-        {% block page_header %}
-        {% endblock %}
-
-        {% block content%}
-        {% endblock %}
-
-        {% block postloadjs %}
-        {% endblock %}
+    {% block postloadjs %}
+    {% endblock %}
 
 </body>
 
