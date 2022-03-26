@@ -51,7 +51,7 @@ body {
 }
 
 .text-info-custom {
-    color:rgb(187, 218, 13);
+    color:rgb(187, 218, 13) !important;
 }
 
 .shop-now-button:hover,
