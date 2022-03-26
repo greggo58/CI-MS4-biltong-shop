@@ -16,25 +16,21 @@ def bag_contents(request):
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
-            subtotal = item_data * product.price
             product_count += item_data
             bag_items.append({
                 'item_id': item_id,
                 'quantity': item_data,
                 'product': product,
-                'subtotal': subtotal,
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
             for quantity in item_data.items():
                 total += quantity * product.price
-                subtotal = quantity * product.price
                 product_count += quantity
                 bag_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
-                    'subtotal': subtotal,
                 })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
