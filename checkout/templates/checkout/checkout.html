@@ -75,6 +75,7 @@
             <p class="text-light">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
+                <!-- {{ order_form|crispy }} -->
                 <fieldset class="rounded px-3 mb-5">
                     <legend class="fieldset-label small text-light px-2 w-auto">Details</legend>
                     {{ order_form.full_name }}
@@ -91,7 +92,7 @@
                     {{ order_form.country }}
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
-                        <label class="form-check-label" for="id-save-info">Save this delivery information to my
+                        <label class="form-check-label text-light font-weight-light" for="id-save-info">Save this delivery information to my
                             profile</label>
                         <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
                             checked>
