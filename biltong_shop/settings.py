@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'instructions',
-    'checkout'
+    'checkout',
 
     # Other
     'crispy_forms',
@@ -80,13 +80,12 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-
                 # REQUIRED BY ALLAUTH - DO NOT REMOVE
                 'django.template.context_processors.request',
-
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'bag.contexts.bag_contents'
+                'django.template.context_processors.media',
+                'bag.contexts.bag_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
