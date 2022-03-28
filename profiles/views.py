@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import UserProfile
 from django.contrib import messages
 from .forms import UserProfileForm
+from checkout.models import Order
 
 # Create your views here.
 
