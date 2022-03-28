@@ -1,11 +1,12 @@
-
 """ Checkout forms """
 from django import forms
 from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """ OrderForm class """
     class Meta:
+        """ Meta class """
         model = Order
         fields = ('full_name', 'email', 'phone_number',
                   'street_address1', 'street_address2',
@@ -38,4 +39,4 @@ class OrderForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False 
+            self.fields[field].label = False
