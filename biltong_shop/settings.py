@@ -18,6 +18,9 @@ import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# To prevent 500 errors during login on a deployed
+# site you need to make a one line addition to your settings file.
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
