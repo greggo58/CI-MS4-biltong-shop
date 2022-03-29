@@ -1,6 +1,5 @@
 """ Checkout forms """
 from django import forms
-from django.forms import BoundField
 from .models import Order
 
 
