@@ -1,0 +1,69 @@
+[{
+    "model": "products.category",
+    "pk": 1,
+    "fields": {
+        "name": "meat_raw",
+        "friendly_name": "Raw Meat"
+    }
+}, {
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+        "name": "meat_dried",
+        "friendly_name": "Dried Meat"
+    }
+}, {
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+        "name": "spices_optional",
+        "friendly_name": "Optional Spices"
+    }
+}, {
+    "model": "products.category",
+    "pk": 4,
+    "fields": {
+        "name": "equipment_traditional",
+        "friendly_name": "Traditional Equipment"
+    }
+}, {
+    "model": "products.category",
+    "pk": 5,
+    "fields": {
+        "name": "equipment_modern",
+        "friendly_name": "Modern Equipment"
+    }
+}, {
+    "model": "products.category",
+    "pk": 6,
+    "fields": {
+        "name": "spices_core",
+        "friendly_name": "Core / Basic Spices"
+    }
+}, {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "category": 1,
+        "sku": "RM111",
+        "name": "Silverside Cut",
+        "description": "2kg Silverside cut of Black Angus beef",
+        "price": "18.00",
+        "rating": "4.80",
+        "image_url": "https://www.gwaunvalleymeats.co.uk/wp-content/uploads/2017/05/Silverside-Joint-Salmon-Cut-Beef-11.jpg",
+        "image": ""
+    }
+}, {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "category": 2,
+        "sku": "DM111",
+        "name": "Biltong Original",
+        "description": "Original spiced biltong (100g)",
+        "price": "10.00",
+        "rating": "4.98",
+        "image_url": "https://cdn.pixabay.com/photo/2016/03/05/19/43/africa-1238491_1280.jpg",
+        "image": ""
+    }
+}]
