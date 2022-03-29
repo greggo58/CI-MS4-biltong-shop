@@ -39,15 +39,10 @@ body {
     width: fit-content;
 }
 
-.shop-now-button {
-    background: rgb(187, 218, 13);
-    color: #222;
-    min-width: 260px;
-}
-
 .btn-custom-yellow {
     background: rgb(187, 218, 13);
     color: #222;
+    /* min-width: 260px; */
 }
 
 .text-info-custom {
@@ -56,32 +51,9 @@ body {
 
 .btn-custom-yellow:hover,
 .btn-custom-yellow:active,
-.btn-custom-yellow:focus,
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
+.btn-custom-yellow:focus {
     background: #222;
     color: white;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black !important;
-    border: 1px solid black;
-}
-
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: black;
-    color: white !important;
-}
-
-.text-black {
-    color: #222 !important;
 }
 
 .border-black {

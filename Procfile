@@ -1,0 +1,1 @@
+web: gunicorn biltong_shop.wsgi:application
