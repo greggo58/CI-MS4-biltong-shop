@@ -1,4 +1,4 @@
-<h1 align="center">Biltong Boutique</h1>
+<h1 align="center">Biltong Shop</h1>
 
 [Biltong Shop - Heroku App](https://ci-ms4-biltong-shop.herokuapp.com/)
 
