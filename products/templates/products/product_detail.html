@@ -13,7 +13,7 @@
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row text-light">
-        <div class="col-12 mol-md-6 col-lg-4 offset-lg-2">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-5">
                 {% if product.image_url %}
                 <a href="{{ product.image_url }}" target="_blank">
@@ -26,7 +26,7 @@
                 {% endif %}
             </div>
         </div>
-        <div class="col-12 mol-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4">
             <div class="product_details container mb-5 mt-md-5">
                 <div class="mb-0">{{ product.name }}</div>
                 <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
@@ -92,6 +92,32 @@
                     </div>
                 </form>
             </div>
+        </div>
+    </div>
+    <div class="row text-light">
+        {% if request.user.is_authenticated %}
+        <div class="col-12 col-md-6 col-lg-8 offset-lg-2">
+            <hr>
+            <h4 class="logo-font mb-4">Add Review</h4>
+            <hr>
+            <div>Review:</div>
+            <div>:::Review text box:::</div>
+            <div>
+                <input type="submit" class="btn-custom-yellow btn rounded-0 btn-md mt-5" value="Add review">
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="row text-light">
+        <div class="col-12 col-md-6 col-lg-8 offset-lg-2">
+            <hr>
+            <h4 class="logo-font mb-4">Reviews</h4>
+            <hr>
+            <div>:::Review 1:::</div>
+            <div>:::Review 2:::</div>
+            <div>:::Review 3:::</div>
+            <div>:::Review 4:::</div>
+            <div>:::Review 5:::</div>
         </div>
     </div>
 </div>
