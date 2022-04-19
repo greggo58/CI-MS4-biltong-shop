@@ -69,11 +69,32 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    initial_data = {
+        'user': request.user.id,
+        'product': product.id,
+        'review': 'Hello'
+    }
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, request.FILES,
+                          initial=initial_data)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully reviewed product!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to review product. \
+                Please ensure the form is valid.')
+    else:
+        form = ReviewForm(instance=product)
+
+    template = 'products/product_detail.html'
     context = {
+        'form': form,
         'product': product,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, template, context)
 
 
 @login_required
@@ -144,32 +165,3 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
-
-
-@login_required
-def add_review(request, product_id):
-    """ Add a product review """
-    if not request.user.is_authenticated:
-        messages.error(request, 'Sorry, only logged in users can add reviews.')
-        return redirect(reverse('home'))
-    else:
-        product_for_review = get_object_or_404(Product, pk=product_id)
-        if request.method == 'POST':
-            form = ReviewForm(request.POST)
-            if form.is_valid():
-                review_data = form.save(commit=False)
-                review_data.review = request.POST["review"]
-                review_data.user = request.user
-                review_data.product = product_for_review
-                review_data.save()
-            else:
-                messages.error(request, 'Failed to review product. \
-                    Please ensure the review is valid.')
-        else:
-            form = ReviewForm()
-
-        template = 'products/product_detail.html'
-        context = {
-            'form': form
-        }
-        return render(request, template, context)

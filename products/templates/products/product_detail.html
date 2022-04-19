@@ -100,11 +100,13 @@
             <hr>
             <h4 class="logo-font mb-4">Add Review</h4>
             <hr>
-            <div>Review:</div>
-            <div>:::Review text box:::</div>
-            <div>
-                <input type="submit" class="btn-custom-yellow btn rounded-0 btn-md mt-5" value="Add review">
-            </div>
+            <form method="POST" action="" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-left">
+                    <button class="btn btn-custom-yellow rounded-0" type="submit">Add Review</button>
+                </div>
+            </form>
         </div>
         {% endif %}
     </div>
