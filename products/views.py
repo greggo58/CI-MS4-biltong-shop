@@ -69,17 +69,14 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
-    initial_data = {
-        'user': request.user.id,
-        'product': product.id,
-        'review': 'Hello'
-    }
-
-    if request.method == 'POST':
-        form = ReviewForm(request.POST, request.FILES,
-                          initial=initial_data)
+    if request.method == 'POST':  # Form to add review
+        form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            review_data = form.save(commit=False)
+            review_data.product = product
+            review_data.user = request.user
+            review_data.review = request.POST['review']
+            review_data.save()
             messages.success(request, 'Successfully reviewed product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:

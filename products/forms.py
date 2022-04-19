@@ -25,7 +25,7 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         """ Meta Class """
         model = Review
-        fields = '__all__'
+        fields = ['review']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
