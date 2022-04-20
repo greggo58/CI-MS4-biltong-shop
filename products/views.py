@@ -71,6 +71,7 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
     no_reviews_list = False
+    review_exists = False
     try:
         reviews = get_list_or_404(Review, product=product)
 
@@ -78,9 +79,8 @@ def product_detail(request, product_id):
             if request.user == review.user:
                 review_exists = True
                 break
-    except Http404:
+    except:
         no_reviews_list = True
-    review_exists = False
 
     form = ReviewForm(instance=product)
 
