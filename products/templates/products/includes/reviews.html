@@ -7,6 +7,7 @@
                 <hr>
             </div>
         </div>
+        {% if not no_reviews_list %}
         {% for review in reviews %}
         <div class="row">
             <div class="col-md-3">
@@ -27,5 +28,12 @@
             </div>
         </div>
         {% endfor %}
+        {% else %}
+        <div class="row">
+            <div class="col-md-3">
+                <p>So much empty!</p>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>

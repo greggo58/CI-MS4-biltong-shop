@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.http import Http404
 from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
 
@@ -69,23 +70,36 @@ def product_detail(request, product_id):
     """ A view to return a product detail page """
 
     product = get_object_or_404(Product, pk=product_id)
-    reviews = get_list_or_404(Review, product=product)
-    review_exists = False
+    no_reviews_list = False
+    try:
+        reviews = get_list_or_404(Review, product=product)
 
-    for review in reviews:
-        if request.user == review.user:
-            review_exists = True
-            break
+        for review in reviews:
+            if request.user == review.user:
+                review_exists = True
+                break
+    except Http404:
+        no_reviews_list = True
+    review_exists = False
 
     form = ReviewForm(instance=product)
 
     template = 'products/product_detail.html'
-    context = {
-        'product': product,
-        'form': form,
-        'reviews': reviews,
-        'review_exists': review_exists
-    }
+    if no_reviews_list:
+        context = {
+            'product': product,
+            'form': form,
+            'review_exists': review_exists,
+            'no_reviews_list': no_reviews_list
+        }
+    else:
+        context = {
+            'product': product,
+            'form': form,
+            'reviews': reviews,
+            'review_exists': review_exists,
+            'no_reviews_list': no_reviews_list
+        }
 
     return render(request, template, context)
 
