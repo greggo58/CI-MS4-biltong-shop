@@ -71,14 +71,10 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     no_reviews_list = False
     review_exists = False
-    try:
-        reviews = get_list_or_404(Review, product=product)
 
-        for review in reviews:
-            if request.user == review.user:
-                review_exists = True
-                break
-    except:
+    reviews = Review.objects.filter(product=product)
+
+    if reviews.count() == 0:
         no_reviews_list = True
 
     form = ReviewForm(instance=product)
