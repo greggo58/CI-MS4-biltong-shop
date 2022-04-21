@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Recipe
 
 # Create your views here.
 
@@ -6,4 +7,12 @@ from django.shortcuts import render
 def instructions(request):
     """ A view to return the instructions page """
 
-    return render(request, 'instructions/instructions.html')
+    recipes = Recipe.objects.all()
+    
+    template = 'instructions/instructions.html'
+    
+    context = {
+        'recipes': recipes
+    }
+
+    return render(request, template, context)
