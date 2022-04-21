@@ -26,27 +26,30 @@ This is a biltong boutique store selling biltong and anything related to biltong
     -   #### First Time Visitor Goals
 
         1. As a First Time Visitor, I want to easily understand the main purpose of the site.
-        2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
+        2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find products.
 
     -   #### Returning Visitor Goals (New Shopper)
 
         1. As a Returning Visitor, I want to easily be able to make a purchase without an account.
         2. As a Returning Visitor, I want to easily be able to register an account as a shopper to make it easier the next time I return to the site.
+        3. As a Returning Visitor, I want to be able to see some recipes for making biltong.
 
     -   #### Frequent User Goals (Shopper)
         1. As a Frequent User, I want to log into the site and see my current orders.
         2. As a Frequent User, I want to quickly search for and select the items for purchase.
         3. As a Frequent User, I want to manage my account easily.
+        4. As a Frequent User, I want to read, add, and edit my product reviews.
     
     -   #### Site Administrator Goals (Owner)
         1. As a Site Administrator, I want to log into the site and manage my products in the store.
+        2. As a Site Administrator, I want to read, add, and edit all product reviews.
 
 -   ### Design
     -   #### Colour Scheme
-        -   Dark theme with '#222' as main dark tone
-        -   Contrast tone is a bright green-yellow to hightlight buttons and calls to action elements.
+        -   Dark theme with '#222' as the main dark tone
+        -   The contrast tone is a bright green-yellow to highlight buttons and calls to action elements.
     -   #### Typography
-        -   The Lato font is the main font used throughout the whole website with Sans Serif as the fallback font in case for any reason the font isn't being imported into the site correctly. XXX is a clean font used frequently in programming, so it is both attractive and appropriate.
+        -   The Lato font is the main font used throughout the whole website with Sans Serif as the fallback font in case the font isn't being imported into the site correctly. XXX is a clean font used frequently in programming, so it is both attractive and appropriate.
     -   #### Imagery
         -   Imagery is important. The large, background hero image is designed to be striking and catch the user's attention. The image will provide a quick understanding to site visitors as to the purpose of the site.
 
@@ -57,9 +60,27 @@ This is a biltong boutique store selling biltong and anything related to biltong
 <h2 id="features">Features</h2>
 
 [Layout](#layout)
--   Responsive on all device sizes
+-   Responsive for all device sizes
 -   Interactive elements
 -   CRUD operations with a database
+
+### Data Schema
+- ACCOUNTS (AllAuth)
+    - Email addresses
+- AUTHENTICATION AND AUTHORIZATION (AllAuth)
+    - Groups
+    - Users
+- CHECKOUT app
+    - Orders
+        - User profile (Foreign Key from Users)
+- INSTRUCTIONS app
+    - Recipies
+- PRODUCTS app
+    - Categories
+    - Products
+        - Category (Foreign Key from Categories)
+    - Reviews
+        - User profile (Foreign Key from Users)
 
 <h2 id="technologies-used">Technologies Used</h2>
 
@@ -84,7 +105,7 @@ This is a biltong boutique store selling biltong and anything related to biltong
 5. [Git:](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 6. [GitHub:](https://github.com/)
-    - GitHub is used to store the projects code after being pushed from Git.
+    - GitHub is used to store the project's code after being pushed from Git.
 8. [Django:](https://www.djangoproject.com/)
     - Django is the main framework used to build the website application efficiently.
 9. [Amazon Web Services (S3):](https://aws.amazon.com/s3/)
@@ -92,26 +113,60 @@ This is a biltong boutique store selling biltong and anything related to biltong
 10. [Heroku:](https://dashboard.heroku.com/)
     - Heroku was used to deploy the app and receive updates from GitHub repository
 11. [Stripe (Card Payments)](https://stripe.com/en-gb)
-    - Stripe was used to manage the payments and card verifications and use of webhooks
+    - Stripe was used in managing the payments and card verifications and the use of webhooks
 12. [Gmail](https://mail.google.com/)
-    - Gmail was used to set up a smtp host point for Django
+    - Gmail was used to set up a SMTP host point for Django
 
 <h2 id="testing">Testing</h2>
 
 [Layout](#layout)
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+Markup Validators from W3C Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+    - Full pass
+-   [W3C HTML Validator - Home](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Products](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Fproducts%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Product Details](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Fproducts%2F7%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Instructions](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Finstructions%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Add Product](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Fproducts%2Fadd%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Profile](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Fprofile%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Accounts Logout](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Faccounts%2Flogout%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Accounts SignUp](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Faccounts%2Fsignup%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Accounts Login](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Faccounts%2Flogin%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Recipe Add](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Finstructions%2Fadd%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
+-   [W3C HTML Validator - Recipe Edit](https://validator.w3.org/nu/?doc=https%3A%2F%2Fci-ms4-biltong-shop.herokuapp.com%2Finstructions%2Fedit%2F2%2F)
+    - Errors related to li element tags in nav element ignored. Used for Bootstrap CSS.
+    - Duplicate id occurrence ignored. Required for mobile top header switch.
 
-### Testing User Stories from User Experience (UX) Section
+### Testing User Stories from the User Experience (UX) Section
 
 -   #### First Time Visitor Goals
 
     1. As a First Time Visitor, I want to easily understand the main purpose of the site.
-        - As a First Time Visitor, I immediately see the large hero image and am able to understand the theme and purpose of the site
-    2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find content.
-        - As a First Time Visitor, I can see the labels and buttons very clearly and understand the pupose of the links and what will happen if I click on them.
+        - As a First Time Visitor, I immediately see the large hero image and can understand the theme and purpose of the site
+    2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find products.
+        - As a First Time Visitor, I can see the labels and buttons very clearly and understand the purpose of the links and what will happen if I click on them.
 
 -   #### Returning Visitor Goals (New Shopper)
 
@@ -121,32 +176,37 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         - As a Returning Visitor, I receive confirmation emails on my purchase orders letting me know that my purchase has gone through successfully.
     2. As a Returning Visitor, I want to easily be able to register an account as a shopper to make it easier the next time I return to the site.
         - As a Returning Visitor, I can register an account easily to store an order history, contact information, and prefill the checkout form before payment.
+    3. As a First Time Visitor, I want to be able to see some recipes for making biltong.
+        - As a Returning Visitor, I can easily find the recipes / instructions on how to make biltong.
 
 -   #### Frequent User Goals (Shopper)
     1. As a Frequent User, I want to log into the site and see my current orders.
-        - As a Frequent User, I can use the navigation to get to me profile and see my order history.
+        - As a Frequent User, I can use the navigation to get to my profile and see my order history.
         - As a Frequent User, I can access my bag to see what I have added and adjust / remove the items very quickly.
     2. As a Frequent User, I want to quickly search for and select the items for purchase.
         - As a Frequent User, I can use the pre-built navigation as product filters to easily narrow the choices for selection.
-        - As a Frequent User, I can sort the products by various means in order see products of my interest first.
+        - As a Frequent User, I can sort the products by various means to see products of my interest first.
         - As a Frequent User, I can manually search for products I know by name or have a specific word or keyphrase in the description.
     3. As a Frequent User, I want to manage my account easily.
         - As a Frequent User, I can navigate to my profile to adjust my contact information.
+    4. As a Frequent User, I want to read, add, and edit my product reviews.
+        - As a Frequent User, I can open a product to see the details and add my review (if I haven't added one already), edit my review (if one exists), or delete my review (if one exists).
 
 -   #### Site Administrator Goals (Owner)
     1. As a Site Administrator, I want to log into the site and manage my products in the store.
         - As a Site Administrator, I can log into the site and use the Product Management link to add new products or edit / delete products as I see them on the site using the convenient links that only site admins can see.
+    2. As a Site Administrator, I can open a product to see the details and add my review (if I haven't added one already), edit any reviews (if any exist), or delete any reviews (if any exist).
 
 ### Further Testing
 
 -   The Website was tested on Google Chrome, Microsoft Edge and Safari browsers.
 -   The website was viewed on a variety of devices such as Desktop, Laptop, Android Smartphone, Apple iPhone.
--   A large amount of testing was done to ensure that all pages were linking correctly and thte data binding was functioning correctly.
+-   A large amount of testing was done to ensure that all pages were linking correctly and the data binding was functioning correctly.
 -   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
 ### Known Bugs
 
--   Issue with custom clearable file input dumping a 500 server error. This was removed from products/forms.py for now.
+-   An issue with custom clearable file input dumping a 500 server error. This was removed from products/forms.py for now.
 
 <h2 id="deployment">Deployment</h2>
 
@@ -156,8 +216,8 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 The project was deployed to GitHub Pages using the following steps...
 
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
-    - Alternatively Click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
+2. At the top of the Repository (not the top of the page), locate the "Settings" button on the menu.
+    - Alternatively, click [Here](https://raw.githubusercontent.com/) for a GIF demonstrating the process starting from Step 2.
 3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
 4. Under "Source", click the dropdown called "None" and select "Master Branch".
 5. The page will automatically refresh.
@@ -168,7 +228,7 @@ The project was deployed to GitHub Pages using the following steps...
 By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+2. At the top of the Repository (not the top of the page) just above the "Settings" button on the menu, locate the "Fork" button.
 3. You should now have a copy of the original repository in your GitHub account.
 
 ### Making a Local Clone
@@ -221,7 +281,7 @@ With manual deploys, you can create an immediate deployment of any branch from t
 
 <img src="https://devcenter1.assets.heroku.com/article-images/2349-imported-1443570589-2349-imported-1443555058-422-original.jpg">
 
-You can also use manual deploys to temporarily deploy a branch other than the one that’s configured for automatic deployment. For example, you might have a development app synced to the **development** GitHub branch, but you temporarily want to test a feature branch. Simply trigger a manual deploy of the feature branch to test it on the Heroku app. Note that release of the feature branch is overwritten on the next successful GitHub push to the **development** branch.
+You can also use manual deploys to temporarily deploy a branch other than the one that’s configured for automatic deployment. For example, you might have a development app synced to the **development** GitHub branch, but you temporarily want to test a feature branch. Simply trigger a manual deploy of the feature branch to test it on the Heroku app. Note that the release of the feature branch is overwritten on the next successful GitHub push to the **development** branch.
 
 #### **Automatic Deploys**
 When you enable automatic deploys for a GitHub branch, Heroku builds and deploys all pushes to that branch. If, for example, you have a development app on Heroku, you can configure pushes to your GitHub development branch to be automatically built and deployed to that app.
@@ -235,7 +295,7 @@ This commit won’t auto-deploy because one of the checks shows a **pending** st
 This commit will auto-deploy because all of the checks show a status of success:<img src="https://devcenter0.assets.heroku.com/article-images/1516299538-Screen-Shot-2018-01-18-at-10.12.16-AM.png">
 
 #### **Review Apps**
-With review apps enabled for a Heroku app, Heroku will create temporary test apps for each pull request that’s opened on the GitHub repo that’s connected to the parent app. Review apps are great if you’re using [GitHub Flow](https://guides.github.com/introduction/flow/) to propose, discuss, and merge changes to your code base. Because pull request branches are deployed to new apps on Heroku, it’s very simple for you and your collaborators to test and debug code branches. You can also run automated integration tests on the Heroku app representing a GitHub branch.
+With review apps enabled for a Heroku app, Heroku will create temporary test apps for each pull request that’s opened on the GitHub repo that’s connected to the parent app. Review apps are great if you’re using [GitHub Flow](https://guides.github.com/introduction/flow/) to propose, discuss, and merge changes to your codebase. Because pull request branches are deployed to new apps on Heroku, it’s very simple for you and your collaborators to test and debug code branches. You can also run automated integration tests on the Heroku app representing a GitHub branch.
 
 See the [Review apps article](https://devcenter.heroku.com/articles/github-integration-review-apps) for details.
 
