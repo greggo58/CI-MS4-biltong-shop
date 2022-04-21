@@ -16,19 +16,19 @@
         <div class="col-12 col-md-6">
             <hr>
             <h2 class="logo-font mb-4 text-light">Recipe Management</h2>
-            <h5 class="text-light font-weight-light">Add a Recipe</h5>
+            <h5 class="text-light font-weight-light">Update a Recipe</h5>
             <hr>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12 col-md-6 text-light">
-            <form method="POST" action="{% url 'add_recipe' %}" class="form mb-2" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'edit_recipe' recipe.id %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-right">
                     <a class="btn btn-custom-yellow rounded-0" href="{% url 'instructions' %}">Cancel</a>
-                    <button class="btn btn-custom-yellow rounded-0" type="submit">Add Recipe</button>
+                    <button class="btn btn-custom-yellow rounded-0" type="submit">Update Recipe</button>
                 </div>
             </form>
         </div>
